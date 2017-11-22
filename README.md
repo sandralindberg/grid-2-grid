@@ -23,4 +23,7 @@ You can add/change/remove breakpoints, but grid is mobile-first so all breakpoin
 You can add/change/remove max-widths, but key name needs to be identical to thoose used in Breakpoints. 
 
 ## License
-MIT © [Sandra Lindberg](https://github.com/sandralindberg)
+MIT © [Sandra Lindberg](https://github.com/sandralindberg) 
+
+## Thanks
+Thanks [STÖK](https://www.stok.se/) for giving me the resources and time to do this grid instead of doing actual work :-) 
