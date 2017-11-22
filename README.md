@@ -6,7 +6,7 @@ __Container__ gets `max-width` based on Breakpoints, remove media-queries for fu
 
 __Row__ can be extended with `row--col-span` to remove column gap in row ANR/OR `row--row-span`to remove row gap in row.
 
-__Col__ created bades on Breakpoints.
+__Col__ created based on Breakpoints.
 
 ## Settings:
 * __Inline-block__, true/false, to enable/disable the inline-block version of the grid
