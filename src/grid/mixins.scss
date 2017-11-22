@@ -1,0 +1,17 @@
+@function settings($key) {
+  @if map-has-key($settings, $key) {
+    @return map-get($settings, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $settings.";
+  @return null;
+}
+
+@function container-max-width($key) {
+  @if map-has-key($container-max-width, $key) {
+    @return map-get($container-max-width, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $settings.";
+  @return null;
+}

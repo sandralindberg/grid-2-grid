@@ -1,0 +1,20 @@
+$container-max-width: (
+  'sm': 500px,
+  'md': 900px,
+  'lg': 1200px
+);
+
+$breakpoints: (
+  'sm': 375px,
+  'md': 768px,
+  'lg': 1100px
+);
+
+$settings: (
+  'inline-block': true,
+  'flexbox': true,
+  'css-grid': true,
+  'columns': 12,
+  'col-gap': 20px,
+  'row-gap': 20px
+);

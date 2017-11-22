@@ -1,0 +1,217 @@
+.container {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+
+  @each $name, $bp in $breakpoints {
+    @media (min-width: #{$bp}) {
+      max-width: container-max-width($name);
+    }
+  }
+}
+
+.row {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: calc(100% + #{settings('col-gap')});
+  margin-right: calc(#{settings('col-gap')} * -1);
+
+  &:after {
+    clear: both;
+    content: "";
+    display: table;
+    width: 100%;
+  }
+
+  @if settings('flexbox') {
+    display: -webkit-box; 
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex; 
+    display: flex;
+
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    -ms-flex-pack: flex-start;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+
+    &:after {
+      display: flex;
+    }
+  }
+
+  @if settings('css-grid') {
+    @supports(display: grid) {
+      display: grid;
+      grid-template-columns: repeat(settings('columns'), 1fr);
+      grid-template-rows: none;
+      grid-column-gap: settings('col-gap');
+      grid-row-gap: settings('row-gap');
+      margin-right: 0; //reset initial
+      width: 100%; // reset initial
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+.row--col-span {
+  width: 100%;
+  margin-right: 0;
+
+  @if settings('css-grid') {
+    @supports(display: grid) {
+      grid-column-gap: 0;
+    }
+  }
+}
+
+.row--row-span {
+  @if settings('css-grid') {
+    @supports(display: grid) {
+      grid-row-gap: 0;
+    }
+  }
+}
+
+[class^='col-'] {
+  @if(settings('inline-block') or settings('flexbox')) {
+    margin-bottom: settings('row-gap');
+  }
+
+  @if settings('inline-block') {
+    float: left;
+    position: relative;
+  }
+
+  @if settings('flexbox') {
+    display: -webkit-box; 
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex; 
+    display: flex;
+
+    -webkit-flex: 0 1 auto;
+    -moz-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+
+  @if settings('css-grid') {
+    @supports(display: grid) {
+      margin: 0;
+      grid-row: auto;
+      grid-column: span settings('columns');
+    }
+  }
+
+  .row--row-span & {
+    margin-bottom: 0;
+  }
+}
+
+[class^='col-'] {
+  position: relative; 
+
+  @if(settings('inline-block') or settings('flexbox')) {
+    margin-right: settings('col-gap');
+    width: calc(100% - #{settings('col-gap')});
+
+    .row--col-span & {
+      width: 100%;
+    }
+  }
+
+  @if settings('css-grid') {
+    @supports(display: grid) {
+      margin-right: 0;
+      width: auto !important;
+    }
+  }
+}
+
+@each $name, $bp in $breakpoints {
+  @media (min-width: #{$bp}) {
+    @for $i from 1 through settings('columns') {
+      @if(settings('inline-block') or settings('flexbox')) {
+        .col-#{$name}-#{$i} {
+          width: calc( ( (100% / #{settings('columns')}) * #{$i} ) - #{settings('col-gap')} );
+        }
+        
+        .col-#{$name}-push-#{$i} {
+          left: percentage(($i / settings('columns')));
+        }
+        
+        .col-#{$name}-pull-#{$i} {
+          right: percentage(($i / settings('columns')));
+        }
+
+        .row--col-span {
+          .col-#{$name}-#{$i} {
+            width: calc( (100% / #{settings('columns')}) * #{$i} );
+          }
+        }
+      }
+
+      @if settings('css-grid') {
+        .col-#{$name}-#{$i} {
+          @supports(display: grid) {
+            grid-column: auto / span #{$i};
+          }
+        }
+
+        .col-#{$name}-push-#{$i} {
+          @supports(display: grid) {
+            left: auto;
+            grid-column-start: #{$i + 1} !important;
+          }
+        }
+
+        .col-#{$name}-pull-#{$i} {
+          @supports(display: grid) {
+            right: auto;
+            order: #{$i * -1};
+          }
+        }
+      }
+    }
+
+    @if(settings('inline-block') or settings('flexbox')) {
+      .col-#{$name}-push-0 {
+        left: auto;
+      }
+      .col-#{$name}-pull-0 {
+        right: auto;
+      }
+    }
+
+    @if settings('css-grid') {
+      .col-#{$name}-push-0 {
+        @supports(display: grid) {
+          grid-column-start: auto !important;
+        }
+      }
+      
+      .col-#{$name}-pull-0 {
+        @supports(display: grid) {
+          order: 0;
+        }
+      }
+    }
+  }
+}
