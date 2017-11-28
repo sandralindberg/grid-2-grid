@@ -5,83 +5,123 @@
 <title>Grid-2-grid</title>
 <link rel="stylesheet" type="text/css" href="dist/styles.css">
 <style>
-  [class^='col-'] {
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+
+  body {
+    font-size: 1.6rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .demo-col {
     background: #ccc;
     height: 50px;
     text-align: center;
+    width: 100%;
   }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="container--fixed">
   <h1>Grid 2 grid</h1>
   <p>A grid that progressivly enhances from inline-block and floats, to flexbox, to css-grid. Turning on inline-block/flexbox/css-grid is optional. Possibility to create more/less breakpoints, change number of columns, set column & row gap/gutter.</p>
 
-  <h2>Demo</h2>
+  <h2>Demo: container--fixed</h2>
   <div class="row">
-    <div class="col-sm-1"></div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-1"></div>
+    <div class="col-sm-1"><div class="demo-col"></div></div>
+    <div class="col-sm-1"><div class="demo-col"></div></div>
+    <div class="col-sm-1"><div class="demo-col"></div></div>
+    <div class="col-sm-1"><div class="demo-col"></div></div>
+    <div class="col-sm-1"><div class="demo-col"></div></div>
+    <div class="col-sm-1"><div class="demo-col"></div></div>
+    <div class="col-sm-1"><div class="demo-col"></div></div>
+    <div class="col-sm-1"><div class="demo-col"></div></div>
+    <div class="col-sm-1"><div class="demo-col"></div></div>
+    <div class="col-sm-1"><div class="demo-col"></div></div>
+    <div class="col-sm-1"><div class="demo-col"></div></div>
+    <div class="col-sm-1"><div class="demo-col"></div></div>
 
-    <div class="col-sm-2"></div>
-    <div class="col-sm-2"></div>
-    <div class="col-sm-2"></div>
-    <div class="col-sm-2"></div>
-    <div class="col-sm-2"></div>
-    <div class="col-sm-2"></div>
+    <div class="col-sm-2"><div class="demo-col"></div></div>
+    <div class="col-sm-2"><div class="demo-col"></div></div>
+    <div class="col-sm-2"><div class="demo-col"></div></div>
+    <div class="col-sm-2"><div class="demo-col"></div></div>
+    <div class="col-sm-2"><div class="demo-col"></div></div>
+    <div class="col-sm-2"><div class="demo-col"></div></div>
 
-    <div class="col-sm-3"></div>
-    <div class="col-sm-3"></div>
-    <div class="col-sm-3"></div>
-    <div class="col-sm-3"></div>
+    <div class="col-sm-3"><div class="demo-col"></div></div>
+    <div class="col-sm-3"><div class="demo-col"></div></div>
+    <div class="col-sm-3"><div class="demo-col"></div></div>
+    <div class="col-sm-3"><div class="demo-col"></div></div>
 
-    <div class="col-sm-4"></div>
-    <div class="col-sm-4"></div>
-    <div class="col-sm-4"></div>
+    <div class="col-sm-4"><div class="demo-col"></div></div>
+    <div class="col-sm-4"><div class="demo-col"></div></div>
+    <div class="col-sm-4"><div class="demo-col"></div></div>
 
-    <div class="col-sm-6"></div>
-    <div class="col-sm-6"></div>
+    <div class="col-sm-6"><div class="demo-col"></div></div>
+    <div class="col-sm-6"><div class="demo-col"></div></div>
 
-    <div class="col-sm-12"></div>
+    <div class="col-sm-12"><div class="demo-col"></div></div>
   </div>
 
   <h2>Demo: breakpoint</h2>
   <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4"></div>
-    <div class="col-sm-6 col-md-4 col-lg-2"></div>
-    <div class="col-sm-6 col-md-2 col-lg-6"></div>
+    <div class="col-sm-12 col-md-6 col-lg-4"><div class="demo-col"></div></div>
+    <div class="col-sm-6 col-md-4 col-lg-2"><div class="demo-col"></div></div>
+    <div class="col-sm-6 col-md-2 col-lg-6"><div class="demo-col"></div></div>
   </div>
 
   <h2>Demo: push/pull</h2>
   <div class="row">
-    <div class="col-sm-4 col-sm-push-8" style="background: #000; color:#fff;">1</div>
-    <div class="col-sm-4 col-sm-pull-4">2</div>
-    <div class="col-sm-4 col-sm-pull-4">3</div>
-    <div class="col-sm-4">4</div>
-    <div class="col-sm-4">5</div>
-    <div class="col-sm-4">6</div>
+    <div class="col-sm-4 col-sm-push-8"><div class="demo-col" style="background: #000; color:#fff;">1</div></div>
+    <div class="col-sm-4 col-sm-pull-4"><div class="demo-col">2</div></div>
+    <div class="col-sm-4 col-sm-pull-4"><div class="demo-col">3</div></div>
+    <div class="col-sm-4"><div class="demo-col">4</div></div>
+    <div class="col-sm-4"><div class="demo-col">5</div></div>
+    <div class="col-sm-4"><div class="demo-col">6</div></div>
   </div>
 
   <h2>Demo: span</h2>
   <div class="row row--col-span row--row-span">
-    <div class="col-sm-4" style="background: #000"></div>
-    <div class="col-sm-4" style="background: #ccc"></div>
-    <div class="col-sm-4" style="background: #444"></div>
+    <div class="col-sm-4"><div class="demo-col" style="background: #000"></div></div>
+    <div class="col-sm-4"><div class="demo-col" style="background: #ccc"></div></div>
+    <div class="col-sm-4"><div class="demo-col" style="background: #444"></div></div>
 
-    <div class="col-sm-4" style="background: #666"></div>
-    <div class="col-sm-4" style="background: #222"></div>
-    <div class="col-sm-4" style="background: #888"></div>
+    <div class="col-sm-4"><div class="demo-col" style="background: #666"></div></div>
+    <div class="col-sm-4"><div class="demo-col" style="background: #222"></div></div>
+    <div class="col-sm-4"><div class="demo-col" style="background: #888"></div></div>
+  </div>
+</div>
+
+<div class="container">
+  
+  <div class="row">
+    <div class="col-sm-12"><div class="demo-col" style="background: #fff"><h2>Demo: container fluid</h2></div></div>
+
+    <div class="col-sm-4"><div class="demo-col"></div></div>
+    <div class="col-sm-4"><div class="demo-col"></div></div>
+    <div class="col-sm-4"><div class="demo-col"></div></div>
+
+    <div class="col-sm-6"><div class="demo-col"></div></div>
+    <div class="col-sm-6"><div class="demo-col"></div></div>
+
+  </div>
+
+  <div class="row row--col-span row--row-span">
+    <div class="col-sm-4"><div class="demo-col" style="background: #000"></div></div>
+    <div class="col-sm-4"><div class="demo-col" style="background: #ccc"></div></div>
+    <div class="col-sm-4"><div class="demo-col" style="background: #444"></div></div>
+
+    <div class="col-sm-4"><div class="demo-col" style="background: #666"></div></div>
+    <div class="col-sm-4"><div class="demo-col" style="background: #222"></div></div>
+    <div class="col-sm-4"><div class="demo-col" style="background: #888"></div></div>
   </div>
 </div>
 
