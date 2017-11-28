@@ -2,7 +2,7 @@
 Progressive enhanced grid, from inline-block to flexbox to css-grid. Not very well tested but it probably works in latest browsers and maybe IE9 - IE11. Make sure you do extensive testing before implementing in real project. 
 
 ## Classes
-__Container__ gets `max-width` based on Breakpoints, remove media-queries for full-width layout (or create a `container--full` class). 
+__Container__ will be 100% of screen for `max-width` based on Breakpoints use `container--fixed` class). If you want padding when container is 100% then move the padding set in `&--fixed` to `& , &--fixed`. 
 
 __Row__ can be extended with `row--col-span` to remove column gap in row ANR/OR `row--row-span`to remove row gap in row.
 
