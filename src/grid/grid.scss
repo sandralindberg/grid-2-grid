@@ -105,9 +105,19 @@
 
 [class^='col-'] {
   min-height: 1px;
+  position: relative; 
 
   @if(settings('inline-block') or settings('flexbox')) {
     margin-bottom: settings('row-gap');
+
+    padding-left:  ceil((settings('col-gap') / 2));
+    padding-right: floor((settings('col-gap') / 2));
+    width: 100%;
+
+    .row--col-span & {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   @if settings('inline-block') {
@@ -137,34 +147,14 @@
       margin: 0;
       grid-row: auto;
       grid-column: span settings('columns');
+      padding-left: 0; //reset inline-block/flexbox
+      padding-right: 0; //reset inline-block/flexbox
+      width: auto !important;
     }
   }
 
   .row--row-span & {
     margin-bottom: 0;
-  }
-}
-
-[class^='col-'] {
-  position: relative; 
-
-  @if(settings('inline-block') or settings('flexbox')) {
-    padding-left:  ceil((settings('col-gap') / 2));
-    padding-right: floor((settings('col-gap') / 2));
-    width: 100%;
-
-    .row--col-span & {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-
-  @if settings('css-grid') {
-    @supports(display: grid) {
-      padding-left: 0; //reset inline-block/flexbox
-      padding-right: 0; //reset inline-block/flexbox
-      width: auto !important;
-    }
   }
 }
 
