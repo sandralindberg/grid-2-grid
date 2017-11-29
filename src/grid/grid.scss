@@ -122,7 +122,6 @@
 
   @if settings('inline-block') {
     float: left;
-    position: relative;
   }
 
   @if settings('flexbox') {
