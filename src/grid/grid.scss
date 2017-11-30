@@ -22,6 +22,8 @@
 
 .row {
   padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
   margin-left:  ceil((settings('col-gap') / -2));
   margin-right: floor((settings('col-gap') / -2));
   list-style: none;
