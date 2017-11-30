@@ -101,6 +101,7 @@
   @if settings('css-grid') {
     @supports(display: grid) {
       grid-row-gap: 0;
+      margin-bottom: 0;
     }
   }
 }
