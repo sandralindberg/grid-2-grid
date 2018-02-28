@@ -1,16 +1,16 @@
-$container-max-width: (
+$g2g__container-max-width: (
   'sm': 500px,
   'md': 900px,
   'lg': 1200px
 );
 
-$breakpoints: (
+$g2g__breakpoints: (
   'sm': 37.5em,
   'md': 76.8em,
   'lg': 110em
 );
 
-$settings: (
+$g2g__settings: (
   'inline-block': true,
   'flexbox': true,
   'css-grid': true,

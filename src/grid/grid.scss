@@ -9,12 +9,12 @@
   }
 
   &--fixed {
-    padding-left:  floor((settings('col-gap') / 2));
-    padding-right: ceil((settings('col-gap') / 2));
+    padding-left:  floor((g2g__setting('col-gap') / 2));
+    padding-right: ceil((g2g__setting('col-gap') / 2));
 
-    @each $name, $bp in $breakpoints {
+    @each $name, $bp in $g2g__breakpoints {
       @media (min-width: #{$bp}) {
-        max-width: container-max-width($name);
+        max-width: g2g__container-max-width($name);
       }
     }
   }
@@ -24,10 +24,10 @@
   padding: 0;
   margin-top: 0;
   margin-bottom: 0;
-  margin-left:  ceil((settings('col-gap') / -2));
-  margin-right: floor((settings('col-gap') / -2));
+  margin-left:  ceil((g2g__setting('col-gap') / -2));
+  margin-right: floor((g2g__setting('col-gap') / -2));
   list-style: none;
-  width: calc(100% + #{settings('col-gap')});
+  width: calc(100% + #{g2g__setting('col-gap')});
 
   &:before,
   &:after {
@@ -40,7 +40,7 @@
     clear: both;
   }
 
-  @if settings('flexbox') {
+  @if g2g__setting('flexbox') {
     display: -webkit-box; 
     display: -moz-box;
     display: -ms-flexbox;
@@ -65,14 +65,14 @@
     }
   }
 
-  @if settings('css-grid') {
+  @if g2g__setting('css-grid') {
     @supports(display: grid) {
       display: grid;
-      grid-template-columns: repeat(settings('columns'), 1fr);
+      grid-template-columns: repeat(g2g__setting('columns'), 1fr);
       grid-template-rows: none;
-      grid-column-gap: settings('col-gap');
-      grid-row-gap: settings('row-gap');
-      margin-bottom: settings('row-gap'); // last row needs margin as css grid will remove last row-gap
+      grid-column-gap: g2g__setting('col-gap');
+      grid-row-gap: g2g__setting('row-gap');
+      margin-bottom: g2g__setting('row-gap'); // last row needs margin as css grid will remove last row-gap
       margin-left: 0; //reset initial
       margin-right: 0; //reset initial
       width: 100%; // reset initial
@@ -90,18 +90,18 @@
   margin-left: 0;
   margin-right: 0;
 
-  @if settings('css-grid') {
+  @if g2g__setting('css-grid') {
     @supports(display: grid) {
       grid-column-gap: 0;
+      margin-bottom: 0;
     }
   }
 }
 
 .row--row-span {
-  @if settings('css-grid') {
+  @if g2g__setting('css-grid') {
     @supports(display: grid) {
       grid-row-gap: 0;
-      margin-bottom: 0;
     }
   }
 }
@@ -110,11 +110,11 @@
   min-height: 1px;
   position: relative; 
 
-  @if(settings('inline-block') or settings('flexbox')) {
-    margin-bottom: settings('row-gap');
+  @if(g2g__setting('inline-block') or g2g__setting('flexbox')) {
+    margin-bottom: g2g__setting('row-gap');
 
-    padding-left:  ceil((settings('col-gap') / 2));
-    padding-right: floor((settings('col-gap') / 2));
+    padding-left:  ceil((g2g__setting('col-gap') / 2));
+    padding-right: floor((g2g__setting('col-gap') / 2));
     width: 100%;
 
     .row--col-span & {
@@ -123,11 +123,11 @@
     }
   }
 
-  @if settings('inline-block') {
+  @if g2g__setting('inline-block') {
     float: left;
   }
 
-  @if settings('flexbox') {
+  @if g2g__setting('flexbox') {
     display: -webkit-box; 
     display: -moz-box;
     display: -ms-flexbox;
@@ -144,11 +144,11 @@
     flex-direction: column;
   }
 
-  @if settings('css-grid') {
+  @if g2g__setting('css-grid') {
     @supports(display: grid) {
       margin: 0;
       grid-row: auto;
-      grid-column: span settings('columns');
+      grid-column: span g2g__setting('columns');
       padding-left: 0; //reset inline-block/flexbox
       padding-right: 0; //reset inline-block/flexbox
       width: auto !important;
@@ -160,20 +160,20 @@
   }
 }
 
-@each $name, $bp in $breakpoints {
+@each $name, $bp in $g2g__breakpoints {
   @media (min-width: #{$bp}) {
-    @for $i from 1 through settings('columns') {
-      @if(settings('inline-block') or settings('flexbox')) {
+    @for $i from 1 through g2g__setting('columns') {
+      @if(g2g__setting('inline-block') or g2g__setting('flexbox')) {
         .col-#{$name}-#{$i} {
-          width: percentage( ( $i / settings('columns') ) );
+          width: percentage( ( $i / g2g__setting('columns') ) );
         }
         
         .col-#{$name}-push-#{$i} {
-          left: percentage(($i / settings('columns')));
+          left: percentage(($i / g2g__setting('columns')));
         }
         
         .col-#{$name}-pull-#{$i} {
-          right: percentage(($i / settings('columns')));
+          right: percentage(($i / g2g__setting('columns')));
         }
 
         .row--col-span {
@@ -184,7 +184,7 @@
         }
       }
 
-      @if settings('css-grid') {
+      @if g2g__setting('css-grid') {
         .col-#{$name}-#{$i} {
           @supports(display: grid) {
             grid-column: auto / span #{$i};
@@ -207,7 +207,7 @@
       }
     }
 
-    @if(settings('inline-block') or settings('flexbox')) {
+    @if(g2g__setting('inline-block') or g2g__setting('flexbox')) {
       .col-#{$name}-push-0 {
         left: auto;
       }
@@ -216,7 +216,7 @@
       }
     }
 
-    @if settings('css-grid') {
+    @if g2g__setting('css-grid') {
       .col-#{$name}-push-0 {
         @supports(display: grid) {
           grid-column-start: auto !important;

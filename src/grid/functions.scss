@@ -1,17 +1,26 @@
-@function settings($key) {
-  @if map-has-key($settings, $key) {
-    @return map-get($settings, $key);
+@function g2g__setting($key) {
+  @if map-has-key($g2g__settings, $key) {
+    @return map-get($g2g__settings, $key);
   }
 
-  @warn "Unknown `#{$key}` in $settings.";
+  @warn "Unknown `#{$key}` in $g2g__settings.";
   @return null;
 }
 
-@function container-max-width($key) {
-  @if map-has-key($container-max-width, $key) {
-    @return map-get($container-max-width, $key);
+@function g2g__container-max-width($key) {
+  @if map-has-key($g2g__container-max-width, $key) {
+    @return map-get($g2g__container-max-width, $key);
   }
 
-  @warn "Unknown `#{$key}` in $settings.";
+  @warn "Unknown `#{$key}` in $g2g__settings.";
+  @return null;
+}
+
+@function g2g__bpreakpoint($key) {
+  @if map-has-key($g2g__breakpoints, $key) {
+    @return map-get($g2g__breakpoints, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $g2g__settings.";
   @return null;
 }
