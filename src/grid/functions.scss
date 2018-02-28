@@ -16,7 +16,7 @@
   @return null;
 }
 
-@function g2g__bpreakpoint($key) {
+@function g2g__breakpoint($key) {
   @if map-has-key($g2g__breakpoints, $key) {
     @return map-get($g2g__breakpoints, $key);
   }
