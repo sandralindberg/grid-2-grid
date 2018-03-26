@@ -148,6 +148,7 @@
     @supports(display: grid) {
       margin: 0;
       grid-row: auto;
+      grid-auto-rows: 1fr; // for equal height rows
       grid-column: span g2g__setting('columns');
       padding-left: 0; //reset inline-block/flexbox
       padding-right: 0; //reset inline-block/flexbox
