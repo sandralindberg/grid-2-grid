@@ -1,6 +1,9 @@
 # grid-2-grid
 Progressive enhanced grid, from inline-block to flexbox to css-grid. Not very well tested but it probably works in latest browsers and maybe IE9 - IE11. Make sure you do extensive testing before implementing in real project. 
 
+## Note
+	Avoid using col push & col pull, they're fragile and poorly tested, push works when there's only 1 column in row
+
 ## Classes
 __Container__ will be 100% of screen for `max-width` based on Breakpoints use `container--fixed` class). If you want padding when container is 100% then move the padding set in `&--fixed` to `& , &--fixed`. 
 
